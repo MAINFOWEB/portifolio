@@ -1,0 +1,234 @@
+/* --- 1. RESET, FONTES E VARIÁVEIS --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --cor-fundo: #0d1117;
+    --cor-destaque: #00d2ff;
+    --cor-texto: #ffffff;
+    --cor-card: #ffffff;
+    --cor-fundo-transparente: rgba(13, 17, 23, 0.8);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    scroll-behavior: smooth;
+}
+
+/* --- 2. ANIMAÇÃO DE FUNDO (CORRIGIDO) --- */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Alterado para 0 */
+    pointer-events: none; /* Isso garante que as partículas não bloqueiem cliques no texto */
+}
+
+/* --- 3. CONTEÚDO PRINCIPAL --- */
+.conteudo-principal {
+    position: relative;
+    z-index: 1; /* Conteúdo sempre acima das partículas */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 4. HEADER E MENU --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: var(--cor-fundo-transparente);
+    backdrop-filter: blur(5px);
+}
+
+.logo { font-size: 26px; font-weight: bold; }
+.logo span { color: var(--cor-destaque); }
+
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 30px; }
+nav ul li a { 
+    color: white; text-decoration: none; font-weight: 500;
+    transition: color 0.3s;
+}
+nav ul li a:hover { color: var(--cor-destaque); }
+
+.menu-mobile { display: none; }
+
+/* --- 5. SEÇÃO PRINCIPAL (CORRIGIDO: adicionei o ponto ".") --- */
+.principal {
+    height: 70vh; 
+    display: flex;
+    flex-direction: column;
+    
+    /* MUDANÇA AQUI: Trocamos 'center' por 'flex-start' */
+    justify-content: flex-start; 
+    
+    align-items: center;
+    text-align: center;
+    
+    /* Agora o padding-top vai funcionar de verdade! */
+    padding-top: 100px; 
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.title {
+    margin-top: 100px;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.botao {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: transparent;
+    border: 2px solid var(--cor-destaque);
+    color: var(--cor-destaque);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+.botao:hover { background-color: var(--cor-destaque); color: #0d1117; }
+
+/* --- 6. GRID E CARDS --- */
+.titulo-Projetos {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 40px;
+    display: inline-block;
+    border-bottom: 4px solid var(--cor-destaque);
+    padding-bottom: 10px;
+}
+
+#projects {
+    padding: 80px 8%; /* Usando 8% para alinhar com o "Sobre Mim" */
+}
+
+.container-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 80px auto;
+    /* Removi o padding: 0 5% daqui para não conflitar com o da section */
+}
+
+.card {
+    background-color: var(--cor-card);
+    color: #333333;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+.card:hover { transform: translateY(-10px); }
+.card img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
+
+/* --- 8. RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .title h1 { font-size: 2.5rem; }
+    nav ul { display: none; }
+    .menu-mobile { display: block; cursor: pointer; color: white; font-size: 24px; }
+}
+/* --- 9. ESTILO DA SEÇÃO SOBRE MIM --- */
+#sobre-mim {
+    padding: 80px 8%;
+    background: transparent; /* Remove qualquer cor de fundo */
+    backdrop-filter: none;    /* Remove o efeito de vidro/blur */
+    border: none;            /* Remove qualquer borda que possa estar criando o bloco */
+}
+
+.titulo-sobre {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 40px;
+    display: inline-block; /* Isso faz o elemento ter apenas o tamanho do texto */
+    border-bottom: 4px solid var(--cor-destaque); /* A linha azul */
+    padding-bottom: 10px; /* Espaço entre o texto e a linha */
+}
+
+.container-sobre {
+    display: flex;
+    align-items: center; /* Alinha texto e imagem ao centro */
+    gap: 50px; /* Espaço entre texto e foto */
+}
+
+/* --- Ajuste no Container de Texto --- */
+.texto-sobre {
+    display: flex;
+    flex-direction: column; /* Força os elementos (P e Botão) a ficarem um embaixo do outro */
+    align-items: flex-start; /* Alinha tudo à esquerda (padrão) */
+    flex: 1; /* Mantém o comportamento de ocupar o espaço disponível */
+}
+
+/* --- Estilo do Botão de Currículo (Ghost Button) --- */
+.btn-curriculo {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: transparent;      /* Fundo transparente inicial */
+    border: 2px solid var(--cor-destaque); /* Usa a cor que você definiu no root */
+    color: var(--cor-destaque);         /* Cor do texto igual à da borda */
+    text-decoration: none;
+    border-radius: 0;                   /* FORMADO RETANGULAR (0 arredondamento) */
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Efeito ao passar o mouse (Hover) */
+.btn-curriculo:hover {
+    background-color: var(--cor-destaque); /* Preenche com a cor de destaque */
+    color: var(--cor-fundo);              /* Texto muda para a cor do fundo para dar contraste */
+    border: 2px solid var(--cor-destaque);
+    transform: translateY(-3px);          /* Efeito leve de elevação */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.foto-sobre img {
+    width: 300px; /* Ajuste o tamanho da foto */
+    height: 350px;
+    border-radius: 15px; /* Bordas arredondadas igual ao do seu amigo */
+    object-fit: cover; /* Faz a foto preencher o quadrado sem distorcer */
+}
+
+/* RESPONSIVIDADE: No celular, coloca a foto em cima do texto */
+@media (max-width: 768px) {
+    .container-sobre {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Estilo para o botão que contém o ícone */
+.seu-botao-3d {
+    display: inline-flex;    /* Troquei de flex para inline-flex */
+    align-items: center;    
+    gap: 10px;              
+    text-decoration: none;  
+    padding: 10px;
+    margin-right: 15px;      /* Adicione uma margem à direita para não grudarem */
+}
+
+/* Força a imagem a respeitar o tamanho definido */
+.icone-3d {
+    width: 24px !important;  /* O !important garante que essa regra ganhe de todas as outras */
+    height: 24px !important;
+    object-fit: contain;     /* Garante que a imagem não distorça */
+}
