@@ -93,3 +93,20 @@ nav ul li a:hover { color: var(--cor-destaque); }
     .container-sobre { flex-direction: column; text-align: center; }
     nav ul { display: none; }
 }
+
+/* Estilo para o botão que contém o ícone */
+.seu-botao-3d {
+    display: inline-flex;    /* Troquei de flex para inline-flex */
+    align-items: center;    
+    gap: 10px;              
+    text-decoration: none;  
+    padding: 10px;
+    margin-right: 15px;      /* Adicione uma margem à direita para não grudarem */
+}
+
+/* Força a imagem a respeitar o tamanho definido */
+.icone-3d {
+    width: 24px !important;  /* O !important garante que essa regra ganhe de todas as outras */
+    height: 24px !important;
+    object-fit: contain;     /* Garante que a imagem não distorça */
+}
