@@ -134,6 +134,21 @@
         </section>
         
     </div>
+
+    <script>
+  // Pega o botão pelo ID
+  const btnTopo = document.getElementById("back-to-top");
+
+  // Monitora a rolagem da página
+  window.onscroll = function() {
+    // Se descer mais de 300 pixels, mostra o botão. Senão, esconde.
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      btnTopo.style.display = "flex"; // Ou "block"
+    } else {
+      btnTopo.style.display = "none";
+    }
+  };
+</script>
     
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="app.js"></script>
