@@ -18,17 +18,20 @@ particlesJS("particles-js", {
 
 /* LÓGICA DO BOTÃO BACK TO TOP */
 document.addEventListener("DOMContentLoaded", function() {
-    const btn = document.getElementById("backToTop");
+   
+    const btn = document.getElementById("back-to-top"); 
 
-    window.onscroll = function() {
-        if (window.pageYOffset > 400) {
-            btn.style.display = "flex";
-        } else {
-            btn.style.display = "none";
-        }
-    };
+    if (btn) { 
+        window.onscroll = function() {
+            if (window.pageYOffset > 400) {
+                btn.style.display = "flex";
+            } else {
+                btn.style.display = "none";
+            }
+        };
 
-    btn.onclick = function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+        btn.onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    }
 });
