@@ -3,7 +3,7 @@
 /* Definição de variáveis globais do sistema */
 :root {
     --cor-fundo: #0d1117;
-    --cor-destaque: #00d2ff;
+    --cor-destaque: #00d2ff; /* Azul ciano do seu projeto */
     --cor-texto: #ffffff;
     --cor-card: #ffffff;
     --cor-fundo-transparente: rgba(13, 17, 23, 0.8);
@@ -76,7 +76,7 @@ nav ul li a:hover { color: var(--cor-destaque); }
 .container-sobre { display: flex; align-items: center; gap: 50px; }
 .foto-sobre img { width: 300px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
 
-/* --- PROJETOS (COM EFEITO FOSCO/OVERLAY) --- */
+/* --- PROJETOS (AJUSTADO SEM FOSCO) --- */
 .container-projetos {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
 }
@@ -86,7 +86,6 @@ nav ul li a:hover { color: var(--cor-destaque); }
     border-radius: 15px; transition: 0.3s;
 }
 
-/* Container para a imagem esconder os botões */
 .container-imagem {
     position: relative;
     overflow: hidden;
@@ -101,60 +100,63 @@ nav ul li a:hover { color: var(--cor-destaque); }
     display: block;
 }
 
-/* Overlay que aparece no hover */
+/* Overlay que aparece no hover - Sem desfoque na imagem */
 .overlay-botoes {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5); /* Escurece suavemente para destacar os botões */
     display: flex; justify-content: center; align-items: center;
     opacity: 0; transition: opacity 0.3s ease;
-    gap: 30px;
+    gap: 40px;
 }
 
+/* AQUI ESTÁ O AJUSTE: Removido o blur e mantido apenas a nitidez */
 .container-imagem:hover img { 
-    filter: blur(4px) brightness(0.6);
+    filter: brightness(0.4); /* Escurece a imagem sem embaçar */
     transform: scale(1.05);
 }
 
 .container-imagem:hover .overlay-botoes { opacity: 1; }
 
-/* Botões 3D dentro do Overlay */
+/* Botões Limpos (sem círculo branco) */
 .seu-botao-3d { 
     display: inline-flex; 
     flex-direction: column; 
     align-items: center; 
-    gap: 2px; 
-    padding: 10px; 
     text-decoration: none;
     position: relative;
     transition: transform 0.2s ease;
 }
 
 .seu-botao-3d:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
-/* Efeito para mostrar a palavra "Código" ou "Projeto" */
+/* Etiqueta Azul (conforme imagem de referência) */
 .seu-botao-3d::after {
     content: attr(data-text);
     position: absolute;
-    bottom: -15px;
+    bottom: -25px;
     background: var(--cor-destaque);
     color: #000;
-    padding: 2px 8px;
+    padding: 3px 10px;
     border-radius: 4px;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: bold;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
     white-space: nowrap;
+    z-index: 10;
 }
 
-.seu-botao-3d:hover::after { opacity: 1; }
+.seu-botao-3d:hover::after { 
+    opacity: 1; 
+    bottom: -20px; /* Efeito de subida leve */
+}
 
 .icone-3d { 
-    width: 32px !important; 
-    height: 32px !important; 
+    width: 40px !important; 
+    height: 40px !important; 
     object-fit: contain; 
 }
 
@@ -162,7 +164,7 @@ nav ul li a:hover { color: var(--cor-destaque); }
 #back-to-top {
     position: fixed; bottom: 30px; right: 30px;
     width: 50px; height: 50px;
-    background-color: #0056FF; color: #FFFFFF;
+    background-color: var(--cor-destaque); color: #000;
     border: none; border-radius: 50%;
     cursor: pointer; display: none;
     align-items: center; justify-content: center;
@@ -173,7 +175,6 @@ nav ul li a:hover { color: var(--cor-destaque); }
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
     .menu-mobile { display: block; }
-
     .nav-links {
         display: none;
         flex-direction: column;
@@ -184,7 +185,6 @@ nav ul li a:hover { color: var(--cor-destaque); }
         padding: 20px;
         text-align: center;
     }
-
     .nav-links.active { display: flex; }
     nav ul li { margin: 15px 0; }
     .container-sobre { flex-direction: column; text-align: center; }
