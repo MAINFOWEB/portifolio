@@ -20,44 +20,52 @@
             <div class="logo">
                 Márcio<span>Alexandre</span>
             </div>
-            <nav id="nav-menu">
-                <!-- Adicionado ID na lista para o JS controlar -->
+            <nav>
+                <!-- ACRESCENTADO: class="nav-links" para o motor do menu funcionar -->
                 <ul class="nav-links">
                     <li><a href="#sobre-mim">Sobre mim</a></li>
                     <li><a href="#projects">Projetos</a></li>
                     <li><a href="#skils">Conhecimentos</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
-                <!-- O ícone do menu que você circulou -->
+                <!-- ACRESCENTADO: id="menu-toggle" para o clique funcionar -->
                 <div class="menu-mobile" id="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </div>
             </nav>
         </header>
 
-        <!-- Seção Hero -->
+        <!-- Seção Hero: Apresentação e Call to Action -->
         <section id="home" class="hero">
             <div class="title">
                 <h1 id="typing">
                     Olá, eu sou <span style="color: var(--cor-destaque);">Márcio Alexandre</span>
                 </h1>
                 <p>
-                    Unindo sólida experiência em infraestrutura de TI ao desenvolvimento web moderno...
+                    Unindo sólida experiência em infraestrutura de TI ao desenvolvimento web moderno, crio interfaces de 
+                    alta performance que equilibram robustez técnica e excelência visual. 
+
+                    Sou um desenvolvedor orientado a resultados, focado em transformar desafios complexos em soluções 
+                    digitais que priorizam a eficiência do código, a usabilidade e a entrega de valor real.
                 </p>
                 <a class="botao" href="#projects">Ver Projetos</a>
             </div>
         </section>
 
-        <!-- Seção Sobre Mim -->
+        <!-- Seção Institucional: Perfil e Trajetória Profissional -->
         <section id="sobre-mim">
             <h2 class="titulo-sobre">Sobre Mim</h2>
             <div class="container-sobre">
                 <div class="texto-sobre">
                     <p>
-                        Sou Márcio Alexandre, Bacharel em Tecnologia da Informação pela UNIVESP...
+                        Sou Márcio Alexandre, Bacharel em Tecnologia da Informação pela UNIVESP e estou em plena transição de carreira para a 
+                        área de TI. Combinando a base lógica e estrutural do meu bacharelado com o estudo contínuo e prático de 
+                        HTML, CSS, JavaScript e React, dedico-me a construir projetos que demonstrem minha evolução técnica e meu olhar atento 
+                        aos detalhes. Sou um profissional proativo, movido pela aprendizagem contínua e pela resolução de problemas. Estou em 
+                        busca da minha primeira oportunidade profissional na área de TI, onde possa aplicar minha dedicação, 
+                        crescer com o time e contribuir com o desenvolvimento de soluções digitais de qualidade.
                     </p> 
-                    <!-- Link configurado para download direto do Drive (Substitua SEU_ID_AQUI) -->
-                    <a href="https://drive.google.com/uc?export=download&id=18ds_DvKLwYq5lcKkuYsxqcUNszj22fUn" class="btn-curriculo" target="_blank">
+                    <a href="https://drive.google.com/file/d/18ds_DvKLwYq5lcKkuYsxqcUNszj22fUn/view?usp=sharing" class="btn-curriculo" download>
                         Baixar Currículo
                     </a>
                 </div>
@@ -68,15 +76,16 @@
             </div>
         </section>
 
-        <!-- Seção de Projetos -->
+        <!-- Seção de Projetos: Exibição de Portfólio -->
         <section id="projects">
             <h2 class="titulo-Projetos">Projetos</h2>
             <main class="container-projetos">
-                <!-- Seus cards de projeto continuam aqui... -->
+                
+                <!-- Card Projeto: Academia Venum -->
                 <article class="card">
-                    <img src="assets/img/academia.jpg" alt="Academia Venum">
+                    <img src="assets/img/academia.jpg" alt="Print do site Academia Venum">
                     <h3>Projeto: Academia Venum</h3>
-                    <p>Descrição técnica do projeto...</p>
+                    <p>Construído com a tecnologia de ponta, o portal de notícias foi planejado para garantir estabilidade e funcionalidade. Utilizando o *GitHub como sistema de controle de versões e o WordPress, sistema de gerenciamento de conteúdo que também opera principalmente com o MySQL, eu empreguei uma combinação de CSS, SCSS, PHP, JavaScript e HTML, proporcionando uma experiênia online fluida e adaptada às necessidades dos usuários.</p>
                     <div class="container-botoes">
                         <a href="https://github.com/MAINFOWEB/academia-venum.git" class="seu-botao-3d">
                             <img src="assets/img/github-3d.png" alt="GitHub" class="icone-3d">
@@ -86,31 +95,54 @@
                         </a>
                     </div>
                 </article>
+                         
+                <!-- Card Projeto: Prototipagem Figma -->
+                <article class="card">
+                    <img src="assets/img/prototipo-figma.jpg" alt="Projeto 2">
+                    <h3>Prototipagem: Figma</h3>
+                    <p>Prototipagem UI/UX - Portal Academia Venum Desenvolvimento de interface de alta fidelidade no Figma para um portal de 
+                        notícias fitness. O projeto foca na hierarquia visual e organização de conteúdos dinâmicos, apresentando uma estrutura 
+                        de leitura em coluna dupla e navegação intuitiva. Prioriza a experiência do usuário (UX) através de um layout limpo, 
+                        facilitando o acesso a eventos e informações essenciais. 
+                        Um estudo de design que equilibra estética moderna com funcionalidade técnica.</p>
+                    <div class="container-botoes">
+                        <a href="https://github.com/MAINFOWEB/prototipagem.git" class="seu-botao-3d">
+                            <img src="assets/img/github-3d.png" alt="GitHub" class="icone-3d">
+                        </a>
+                        <a href="https://www.figma.com/design/tFyi9zZ7ZJPASs170gAA8n/ACADEMIA-VENUM?node-id=0-1&t=gdqX0s9zNTy3LJp8-1" class="seu-botao-3d">
+                            <img src="assets/img/olho.png" alt="Demo" class="icone-3d">
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card Projeto: Placeholder -->
+                <article class="card">
+                    <img src="foto2.png" alt="Projeto 2">
+                    <h3>Nome do Projeto 2</h3>
+                    <p>Descrição...</p>
+                    <div class="container-botoes">
+                        <a href="link-github" class="seu-botao-3d">
+                            <img src="assets/img/github-3d.png" alt="GitHub" class="icone-3d">
+                        </a>
+                        <a href="link-demo" class="seu-botao-3d">
+                            <img src="assets/img/olho.png" alt="Demo" class="icone-3d">
+                        </a>
+                    </div>
+                </article>
             </main>
         </section>
+        
     </div>
 
-    <!-- Botão de retorno ao topo (ID correto com hífens) -->
+    <!-- Botão de retorno ao topo (Mantido Original) -->
     <a href="#home" id="back-to-top" title="Voltar ao Topo">
         <i class="fas fa-arrow-up"></i> 
     </a>
 
-    <!-- Scripts no final para melhor performance -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="app.js"></script>
-
-    <!-- Script Interno para Menu e Botão (Caso o app.js falhe) -->
+    <!-- Script: Controle de visibilidade do botão de retorno ao topo (Mantido Original) -->
     <script>
-        // Lógica do Menu Mobile
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Lógica do Botão Voltar ao Topo
         const btnTopo = document.getElementById("back-to-top");
+
         window.onscroll = function() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 btnTopo.style.display = "flex";
@@ -119,5 +151,9 @@
             }
         };
     </script>
+    
+    <!-- Bibliotecas e Scripts de Terceiros -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
