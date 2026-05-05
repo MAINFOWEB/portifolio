@@ -121,24 +121,23 @@ nav ul li a:hover { color: var(--cor-destaque); }
     .container-sobre { flex-direction: column; text-align: center; }
 }
 
-/* Botões 3D e Ícones - Mantendo sua estrutura original */
+/* Botões 3D e Ícones - Ajustado para empilhar verticalmente */
 .seu-botao-3d { 
     display: inline-flex; 
+    flex-direction: column; 
     align-items: center; 
-    gap: 10px; 
+    gap: 5px; 
     padding: 10px; 
     margin-right: 15px; 
-    text-decoration: none; /* Garante que não tenha sublinhado no texto */
-    color: var(--cor-destaque); /* Usa sua variável de cor para o nome */
-    font-weight: bold;
-}
+    text-decoration: none;
+    color: #333;
+    font-size: 12px; 
 
 .icone-3d { 
     width: 24px !important; 
     height: 24px !important; 
     object-fit: contain; 
 }
-
 /* Acréscimo opcional para o texto se quiser mudar a cor dele especificamente */
 .seu-botao-3d span {
     font-size: 14px;
