@@ -47,7 +47,7 @@ nav ul li { margin-left: 30px; }
 nav ul li a { color: white; text-decoration: none; transition: 0.3s; }
 nav ul li a:hover { color: var(--cor-destaque); }
 
-/* Ícone Hamburguer (Escondido por padrão no Desktop) */
+/* Ícone Hamburguer */
 .menu-mobile {
     display: none; 
     color: var(--cor-texto);
@@ -76,7 +76,7 @@ nav ul li a:hover { color: var(--cor-destaque); }
 .container-sobre { display: flex; align-items: center; gap: 50px; }
 .foto-sobre img { width: 300px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
 
-/* Projetos */
+/* --- PROJETOS (COM EFEITO FOSCO/OVERLAY) --- */
 .container-projetos {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
 }
@@ -84,9 +84,68 @@ nav ul li a:hover { color: var(--cor-destaque); }
     background: var(--cor-card); color: #333; padding: 20px;
     border-radius: 15px; transition: 0.3s;
 }
-.card img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
 
-/* Botão Topo */
+/* Container para a imagem focar/esconder botões */
+.container-imagem {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.container-imagem img { 
+    width: 100%; height: 200px; object-fit: cover; 
+    transition: 0.3s; display: block;
+}
+
+/* Overlay que aparece no hover */
+.overlay-botoes {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; transition: 0.3s;
+}
+
+.container-imagem:hover img { filter: blur(4px) brightness(0.7); }
+.container-imagem:hover .overlay-botoes { opacity: 1; }
+
+/* Botões 3D dentro do Overlay */
+.seu-botao-3d { 
+    display: inline-flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 2px; 
+    padding: 10px; 
+    text-decoration: none;
+    color: white; /* Texto branco para destacar no fundo escuro */
+    position: relative;
+}
+
+/* Efeito para mostrar a palavra "Código" ou "Projeto" no hover do ícone */
+.seu-botao-3d::after {
+    content: attr(data-text);
+    position: absolute;
+    bottom: -15px;
+    background: var(--cor-destaque);
+    color: var(--cor-fundo);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.seu-botao-3d:hover::after { opacity: 1; }
+
+.icone-3d { 
+    width: 24px !important; 
+    height: 24px !important; 
+    object-fit: contain; 
+}
+
+/* --- BOTÃO VOLTAR AO TOPO --- */
 #back-to-top {
     position: fixed; bottom: 30px; right: 30px;
     width: 50px; height: 50px;
@@ -98,47 +157,22 @@ nav ul li a:hover { color: var(--cor-destaque); }
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* --- RESPONSIVIDADE (MOBILE) --- */
+/* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
-    .menu-mobile { display: block; } /* Mostra o hamburguer */
+    .menu-mobile { display: block; }
 
     .nav-links {
-        display: none; /* Esconde a lista de links original */
+        display: none;
         flex-direction: column;
         position: absolute;
         top: 100%; left: 0; width: 100%;
-        background: var(--cor-fundo);
+        background: var(--cor-fundo-transparente);
+        backdrop-filter: blur(10px);
         padding: 20px;
         text-align: center;
     }
 
-    /* Classe que o JavaScript vai ativar/desativar */
-    .nav-links.active {
-        display: flex;
-    }
-
+    .nav-links.active { display: flex; }
     nav ul li { margin: 15px 0; }
     .container-sobre { flex-direction: column; text-align: center; }
-}
-
-/* Botões 3D e Ícones - Ajustado para empilhar verticalmente */
-.seu-botao-3d { 
-    display: inline-flex; 
-    flex-direction: column; 
-    align-items: center; 
-    gap: 2px; 
-    padding: 10px; 
-    margin-right: 15px; 
-    text-decoration: none;
-    color: #333;
-    font-size: 12px; 
-
-.icone-3d { 
-    width: 24px !important; 
-    height: 24px !important; 
-    object-fit: contain; 
-}
-/* Acréscimo opcional para o texto se quiser mudar a cor dele especificamente */
-.seu-botao-3d span {
-    font-size: 14px;
 }
