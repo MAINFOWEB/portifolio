@@ -1,31 +1,69 @@
-/* CONFIGURAÇÃO DAS PARTÍCULAS */
+/* --- CONFIGURAÇÃO DAS PARTÍCULAS (PARTICLES.JS) --- */
+/* Esta função inicializa o efeito visual de fundo */
 particlesJS("particles-js", {
   "particles": {
-    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+    "number": { 
+      "value": 80, 
+      "density": { 
+        "enable": true, 
+        "value_area": 800 
+      } 
+    },
     "color": { "value": "#ffffff" },
     "shape": { "type": "circle" },
-    "opacity": { "value": 0.5 },
-    "size": { "value": 3, "random": true },
-    "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
-    "move": { "enable": true, "speed": 2 }
+    "opacity": { 
+      "value": 0.5,
+      "random": false
+    },
+    "size": { 
+      "value": 3, 
+      "random": true 
+    },
+    "line_linked": { 
+      "enable": true, 
+      "distance": 150, 
+      "color": "#ffffff", 
+      "opacity": 0.4, 
+      "width": 1 
+    },
+    "move": { 
+      "enable": true, 
+      "speed": 2,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false
+    }
   },
   "interactivity": {
     "detect_on": "canvas",
-    "events": { "onhover": { "enable": true, "mode": "grab" }, "resize": true }
+    "events": { 
+      "onhover": { 
+        "enable": true, 
+        "mode": "grab" 
+      }, 
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      },
+      "resize": true 
+    }
   },
   "retina_detect": true
 });
 
-/* LÓGICA DE INTERAÇÃO (DOM) */
+/* --- LÓGICA DE INTERAÇÃO (DOM) --- */
+/* Garante que o código execute apenas após o HTML estar pronto */
 document.addEventListener("DOMContentLoaded", function() {
-   
-    // 1. LÓGICA DO MENU MOBILE (O que faltava para o celular)
+    
+    // 1. LÓGICA DO MENU MOBILE (Controle do Hambúrguer)
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', function() {
-            // Alterna a classe 'active' para abrir/fechar o menu
+            // Alterna a classe 'active' definida no seu CSS para abrir/fechar o menu
             navLinks.classList.toggle('active');
         });
 
@@ -38,12 +76,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 2. LÓGICA DO BOTÃO BACK TO TOP
+    // 2. LÓGICA DO BOTÃO VOLTAR AO TOPO (BACK TO TOP)
     const btn = document.getElementById("back-to-top"); 
 
     if (btn) { 
         window.onscroll = function() {
-            // Usando scrollY que é o padrão mais moderno
+            // Define a visibilidade do botão baseada no scroll vertical
             if (window.scrollY > 400) {
                 btn.style.display = "flex";
             } else {
@@ -51,8 +89,9 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         };
 
-        btn.onclick = function(e) {
-            e.preventDefault();
+        // Scroll suave para o topo ao clicar no botão
+        btn.onclick = function(evento) {
+            evento.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
     }
