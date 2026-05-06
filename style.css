@@ -276,3 +276,19 @@ nav ul li a:hover {
         text-align: center; 
     }
 }
+
+footer {
+    padding: 30px 8%;
+    background: var(--cor-fundo-transparente);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 1;
+}
+
+footer p {
+    color: var(--cor-texto);
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
