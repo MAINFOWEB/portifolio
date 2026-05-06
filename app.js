@@ -1,3 +1,4 @@
+/* Configuração do Particles.js */
 particlesJS("particles-js", {
   "particles": {
     "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
@@ -16,43 +17,7 @@ particlesJS("particles-js", {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-        });
-
-        const links = navLinks.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    }
-
-    const btn = document.getElementById("back-to-top"); 
-    if (btn) { 
-        window.onscroll = function() {
-            if (window.scrollY > 400) {
-                btn.style.display = "flex";
-            } else {
-                btn.style.display = "none";
-            }
-        };
-
-        btn.onclick = function(evento) {
-            evento.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
-    }
-
-    const yearSpan = document.getElementById("year");
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
-});
+    
     // 1. LÓGICA DO MENU MOBILE (Controle do Hambúrguer)
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -91,4 +56,13 @@ document.addEventListener("DOMContentLoaded", function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
     }
+
+    // 3. LÓGICA DO COPYRIGHT (Atualização Automática do Ano)
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
+    // Nota: Removi a duplicata que estava fora deste bloco para evitar erros de referência, 
+    // mantendo as funcionalidades centralizadas aqui dentro do DOMContentLoaded.
 });
