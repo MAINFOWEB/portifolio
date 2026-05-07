@@ -7,7 +7,7 @@ Bem-vindo ao meu portfólio! Aqui apresento a minha trajetória académica em **
 ## 👨‍💻 Sobre Mim
 * **Nome:** Márcio
 * **Formação:** Bacharel em Tecnologia da Informação (BTI)
-* **Foco:** Desenvolvimento Python, Automação Residencial e Infraestrutura de Hardware.
+* **Foco:** Desenvolvimento Python, Front-End, Backend e Infraestrutura de Hardware.
 * **Objetivo:** Aplicar soluções tecnológicas inteligentes para resolver problemas do quotidiano.
 
 ---
@@ -17,7 +17,7 @@ Bem-vindo ao meu portfólio! Aqui apresento a minha trajetória académica em **
 ### 💻 Desenvolvimento & Software
 * **Linguagens:** Python (Automação e Scripts), PHP, JavaScript.
 * **Web:** HTML5, CSS3, Integração com Templates (AdminLTE), WordPress.
-* **Ferramentas:** Git/GitHub, PyInstaller, NSSM (Serviços Windows).
+* **Ferramentas:** Git/GitHub, VS.Code, PyInstaller, NSSM (Serviços Windows).
 
 ### ⚙️ Hardware & Infraestrutura
 * **Manutenção:** Reparação avançada de Desktops, Notebooks, Smartphones e Tablets.
