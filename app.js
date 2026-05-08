@@ -65,4 +65,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Nota: Removi a duplicata que estava fora deste bloco para evitar erros de referência, 
     // mantendo as funcionalidades centralizadas aqui dentro do DOMContentLoaded.
+});.        });
+    }
+
+    // 2. LÓGICA DO BOTÃO VOLTAR AO TOPO (BACK TO TOP)
+    const btn = document.getElementById("back-to-top"); 
+
+    if (btn) { 
+        window.onscroll = function() {
+            // Define a visibilidade do botão baseada no scroll vertical
+            if (window.scrollY > 400) {
+                btn.style.display = "flex";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+
+        // Scroll suave para o topo ao clicar no botão
+        btn.onclick = function(evento) {
+            evento.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    }
+
+    // 3. LÓGICA DO COPYRIGHT (Atualização Automática do Ano)
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
+    // Nota: Removi a duplicata que estava fora deste bloco para evitar erros de referência, 
+    // mantendo as funcionalidades centralizadas aqui dentro do DOMContentLoaded.
 });
