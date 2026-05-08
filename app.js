@@ -26,14 +26,6 @@ document.addEventListener("DOMContentLoaded", function() {
         menuToggle.addEventListener('click', function() {
             // Alterna a classe 'active' definida no seu CSS para abrir/fechar o menu
             navLinks.classList.toggle('active');
-
-            // --- ACRESCENTADO: Troca o ícone de Barras por um "X" quando aberto ---
-            const icon = menuToggle.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.classList.replace('fa-bars', 'fa-times');
-            } else {
-                icon.classList.replace('fa-times', 'fa-bars');
-            }
         });
 
         // Fecha o menu ao clicar em qualquer link (Melhor experiência no celular)
@@ -41,39 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
         links.forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                // Retorna o ícone para Barras ao fechar
-                const icon = menuToggle.querySelector('i');
-                icon.classList.replace('fa-times', 'fa-bars');
             });
-        });
-    }
-
-    // 2. LÓGICA DO BOTÃO VOLTAR AO TOPO (BACK TO TOP)
-    const btn = document.getElementById("back-to-top"); 
-
-    if (btn) { 
-        window.onscroll = function() {
-            // Define a visibilidade do botão baseada no scroll vertical
-            if (window.scrollY > 400) {
-                btn.style.display = "flex";
-            } else {
-                btn.style.display = "none";
-            }
-        };
-
-        // Scroll suave para o topo ao clicar no botão
-        btn.onclick = function(evento) {
-            evento.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
-    }
-
-    // 3. LÓGICA DO COPYRIGHT (Atualização Automática do Ano)
-    const yearSpan = document.getElementById("year");
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
-});
         });
     }
 
