@@ -1,39 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+Perfeito, Márcio. Analisei seu HTML. Ele já possui a **Meta Tag Viewport** na linha 5, o que é excelente.
+Como você vai enviar o CSS e o JavaScript a seguir, vou preparar as adições para que o seu **Menu Mobile** (que já tem o id="menu-toggle") funcione e para que os **Cards de Projetos** e a **Seção Sobre** se ajustem automaticamente.
+Abaixo, apresento como os seus códigos devem ficar após as adições. Note que mantive tudo o que você já tinha e apenas acrescentei as regras no final.
+### 1. No seu CSS (style.css)
+**Apenas acrescente este bloco ao final do arquivo:**
+```css
+/* --- ADIÇÕES PARA RESPONSIVIDADE (MOBILE) --- */
 
-:root {
-    --cor-fundo: #0d1117;
-    --cor-destaque: #00d2ff;
-    --cor-texto: #ffffff;
-    --cor-card: #ffffff;
-    --cor-fundo-transparente: rgba(13, 17, 23, 0.8);
+/* Ajustes para o Menu Mobile */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 5%;
+        position: relative;
+    }
+
+    .nav-links {
+        display: none; /* Esconde o menu padrão */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 1rem 0;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex; /* Mostra o menu quando clicado via JS */
+    }
+
+    .menu-mobile {
+        display: block; /* Mostra o ícone hambúrguer */
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--cor-destaque, #fff);
+    }
+
+    /* Ajuste da Seção Hero */
+    .hero {
+        padding: 4rem 5%;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    /* Ajuste da Seção Sobre Mim */
+    .container-sobre {
+        flex-direction: column-reverse; /* Foto em cima ou embaixo conforme preferir */
+        text-align: center;
+    }
+
+    .foto-sobre img {
+        width: 200px;
+        margin-bottom: 2rem;
+    }
+
+    /* Ajuste dos Cards de Projetos */
+    .container-projetos {
+        display: grid;
+        grid-template-columns: 1fr; /* Um card por linha no celular */
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .card {
+        max-width: 100%;
+    }
 }
 
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
+/* Imagens fluidas para evitar quebra de layout */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-html, body {
-    overflow-x: hidden;
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    scroll-behavior: smooth;
+```
+### 2. No seu JavaScript (app.js)
+**Acrescente este código ao final para dar vida ao botão de menu que já existe no seu HTML:**
+```javascript
+/* --- ADIÇÃO PARA FUNCIONAMENTO DO MENU MOBILE --- */
+
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        
+        // Opcional: Muda o ícone de barras para um "X" ao abrir
+        const icon = menuToggle.querySelector('i');
+        if (icon.classList.contains('fa-bars')) {
+            icon.classList.replace('fa-bars', 'fa-xmark');
+        } else {
+            icon.classList.replace('fa-xmark', 'fa-bars');
+        }
+    });
 }
 
-#particles-js {
-    position: fixed;
-    top: 0; 
-    left: 0;
-    width: 100%; 
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-}
+// Fecha o menu ao clicar em um link (melhora a experiência)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
 
-.conteudo-principal { 
-    position: relative; 
+```
+**O que essas adições fazem:**
+ 1. **Imagens:** Garante que nenhuma imagem "estoure" a largura da tela do celular.
+ 2. **Layout:** Transforma o layout de colunas (lado a lado) em linhas (um embaixo do outro) quando a tela for menor que 768px.
+ 3. **Interatividade:** Faz o ícone de "hambúrguer" que você colocou no HTML abrir e fechar a lista de links.
+Se você tiver o CSS e o JS atuais e quiser que eu os mescle para você, pode enviar! Caso contrário, basta colar esses blocos no final de cada respectivo arquivo.
     z-index: 1; 
 }
 
