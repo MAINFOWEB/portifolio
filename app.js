@@ -18,82 +18,41 @@ particlesJS("particles-js", {
 
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. LÓGICA DO MENU MOBILE (Controle do Hambúrguer)
+    // 1. MENU MOBILE
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', function() {
-            // Alterna a classe 'active' definida no seu CSS para abrir/fechar o menu
             navLinks.classList.toggle('active');
         });
 
-        // Fecha o menu ao clicar em qualquer link (Melhor experiência no celular)
-        const links = navLinks.querySelectorAll('a');
-        links.forEach(link => {
+        navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
         });
     }
 
-    // 2. LÓGICA DO BOTÃO VOLTAR AO TOPO (BACK TO TOP)
+    // 2. BOTÃO VOLTAR AO TOPO
     const btn = document.getElementById("back-to-top"); 
 
-    if (btn) { 
-        window.onscroll = function() {
-            // Define a visibilidade do botão baseada no scroll vertical
-            if (window.scrollY > 400) {
-                btn.style.display = "flex";
-            } else {
-                btn.style.display = "none";
-            }
-        };
+    window.onscroll = function() {
+        if (window.scrollY > 400) {
+            btn.style.display = "flex";
+        } else {
+            btn.style.display = "none";
+        }
+    };
 
-        // Scroll suave para o topo ao clicar no botão
-        btn.onclick = function(evento) {
-            evento.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
-    }
+    btn.onclick = function(evento) {
+        evento.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
-    // 3. LÓGICA DO COPYRIGHT (Atualização Automática do Ano)
+    // 3. ANO ATUAL (Sempre será 2026 conforme solicitado no footer)
     const yearSpan = document.getElementById("year");
     if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
+        yearSpan.textContent = "2026";
     }
-
-    // Nota: Removi a duplicata que estava fora deste bloco para evitar erros de referência, 
-    // mantendo as funcionalidades centralizadas aqui dentro do DOMContentLoaded.
-});.        });
-    }
-
-    // 2. LÓGICA DO BOTÃO VOLTAR AO TOPO (BACK TO TOP)
-    const btn = document.getElementById("back-to-top"); 
-
-    if (btn) { 
-        window.onscroll = function() {
-            // Define a visibilidade do botão baseada no scroll vertical
-            if (window.scrollY > 400) {
-                btn.style.display = "flex";
-            } else {
-                btn.style.display = "none";
-            }
-        };
-
-        // Scroll suave para o topo ao clicar no botão
-        btn.onclick = function(evento) {
-            evento.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
-    }
-
-    // 3. LÓGICA DO COPYRIGHT (Atualização Automática do Ano)
-    const yearSpan = document.getElementById("year");
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
-
-    // Nota: Removi a duplicata que estava fora deste bloco para evitar erros de referência, 
-    // mantendo as funcionalidades centralizadas aqui dentro do DOMContentLoaded.
 });
