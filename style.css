@@ -75,9 +75,8 @@ nav ul li a:hover { color: var(--cor-destaque); }
     padding: 0 10%;
 }
 
-.title h1 { 
-    font-size: 3rem; 
-    margin-bottom: 20px; 
+.title h1 span {
+    color: var(--cor-destaque);
 }
 
 /* --- SEÇÃO SOBRE MIM (CORRIGIDA) --- */
