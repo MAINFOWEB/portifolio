@@ -118,6 +118,7 @@ nav ul li a:hover { color: var(--cor-destaque); }
     width: 100%;
     display: flex;
     justify-content: center; /* Centraliza o botão de currículo */
+    margin-top: 40px;
 }
 
 .botao, .btn-curriculo {
