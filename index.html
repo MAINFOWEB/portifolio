@@ -18,38 +18,33 @@
                 <i class="fa-solid fa-bars"></i>
             </div>
             <nav>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#sobre-mim">Sobre Mim</a></li>
-                    <li><a href="#projects">Projetos</a></li>
-                </ul>
+               <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#sobre-mim">Sobre Mim</a></li>
+        <li><a href="#projects">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li> 
+    </ul>
             </nav>
         </header>
 
         <section id="home" class="hero">
             <div class="title">
                 <h1>Olá, eu sou <span>Márcio Alexandre</span></h1>
-                <p>Unindo sólida experiência em infraestrutura de TI ao desenvolvimento web moderno, crio interfaces de alta performance que 
-            equilibram robustez técnica e excelência visual. Sou um desenvolvedor orientado a resultados, focado em transformar 
-            desafios complexos em soluções digitais que priorizam a eficiência do código, a usabilidade e a entrega de valor real.</p>
+                <p>Unindo sólida experiência em infraestrutura de TI ao desenvolvimento web moderno, crio interfaces de alta performance que equilibram robustez técnica e excelência visual. Sou um desenvolvedor orientado a resultados, focado em transformar desafios complexos em soluções digitais que priorizam a eficiência do código, a usabilidade e a entrega de valor real.</p>
                 <a href="#projects" class="botao">Ver Projetos</a>
             </div>
         </section>
 
         <section id="sobre-mim">
             <h2 class="logo">Sobre <span>Mim</span></h2>
-            <br> <div class="container-sobre">
+            <br> 
+            <div class="container-sobre">
                 <div class="perfil-wrapper">
                     <div class="foto-sobre">
                         <img src="assets/img/imagemf1.jpeg" alt="Márcio Alexandre">
                     </div>
                     <div class="texto-sobre">
-                        <p>Sou Márcio Alexandre, Bacharel em Tecnologia da Informação pela UNIVESP e estou em plena transição de carreira 
-                        para a área de TI. Combinando a base lógica e estrutural do meu bacharelado com o estudo contínuo e prático de 
-                        HTML, CSS, JavaScript e React, dedico-me a construir projetos que demonstrem minha evolução técnica e meu olhar 
-                        atento aos detalhes. Sou um profissional proativo, movido pela aprendizagem contínua e pela resolução de 
-                        problemas. Estou em busca da minha primeira oportunidade profissional na área de TI, onde possa aplicar minha 
-                        dedicação, crescer com o time e contribuir com o desenvolvimento de soluções digitais de qualidade.</p>
+                        <p>Sou Márcio Alexandre, Bacharel em Tecnologia da Informação pela UNIVESP e estou em plena transição de carreira para a área de TI. Combinando a base lógica e estrutural do meu bacharelado com o estudo contínuo e prático de HTML, CSS, JavaScript e React, dedico-me a construir projetos que demonstrem minha evolução técnica e meu olhar atento aos detalhes. Sou um profissional proativo, movido pela aprendizagem contínua e pela resolução de problemas. Estou em busca da minha primeira oportunidade profissional na área de TI, onde possa aplicar minha dedicação, crescer com o time e contribuir com o desenvolvimento de soluções digitais de qualidade.</p>
                     </div>
                 </div>
 
@@ -59,25 +54,26 @@
             </div>
         </section>
 
-        <div class="card-projeto">
-                <img src="assets/img/academia.jpg" alt="Academia Venum">
-                <h3>Projeto: Academia Venum</h3>
-                <p>Construído com a tecnologia de ponta, o portal de notícias foi planejado para garantir estabilidade e funcionalidade. 
-                    Utilizando o GitHub como sistema de controle de versões e o WordPress, sistema de gerenciamento de conteúdo que 
-                    também opera principalmente com o MySQL, eu empreguei uma combinação de CSS, SCSS, PHP, JavaScript e HTML, 
-                    proporcionando uma experiência online fluida e adaptada às necessidades dos usuários.</p>
-            </div>
+        <section id="projects">
+            <h2 class="logo">Meus <span>Projetos</span></h2>
+            <br>
+            <div class="container-projetos">
+                
+                <div class="card">
+                    <div class="container-imagem">
+                        <img src="assets/img/academia.jpg" alt="Academia Venum">
+                    </div>
+                    <h3>Projeto: Academia Venum</h3>
+                    <p>Construído com tecnologia de ponta, o portal de notícias foi planejado para garantir estabilidade e funcionalidade. Utilizando GitHub, WordPress e MySQL, empreguei uma combinação de CSS, SCSS, PHP, JavaScript e HTML.</p>
+                </div>
 
-            <div class="card-projeto">
-                <img src="assets/img/prototipo-figma.jpg" alt="Prototipagem Figma">
-                <h3>Prototipagem: Figma</h3>
-                <p>Prototipagem UI/UX - Portal Academia Venum Desenvolvimento de interface de alta fidelidade no Figma para um portal 
-                    de notícias fitness. O projeto foca na hierarquia visual e organização de conteúdos dinâmicos, apresentando uma 
-                    estrutura de leitura em coluna dupla e navegação intuitiva. Prioriza a experiência do usuário (UX) através de um 
-                    layout limpo, facilitando o acesso a eventos e informações essenciais. Um estudo de design que equilibra estética 
-                    moderna com funcionalidade técnica.</p>
-            </div>
-
+                <div class="card">
+                    <div class="container-imagem">
+                        <img src="assets/img/prototipo-figma.jpg" alt="Prototipagem Figma">
+                    </div>
+                    <h3>Prototipagem: Figma</h3>
+                    <p>Desenvolvimento de interface de alta fidelidade no Figma. O projeto foca na hierarquia visual e organização de conteúdos dinâmicos, apresentando uma estrutura de leitura em coluna dupla e navegação intuitiva.</p>
+                </div>
 
                 <div class="card">
                     <div class="container-imagem">
@@ -87,26 +83,18 @@
                         </div>
                     </div>
                     <h3>Sistema Solar Interativo</h3>
-                    <p>O projeto é uma aplicação web interativa que simula o movimento do sistema solar. Mais do que uma animação, é uma 
-                    ferramenta de exploração onde o usuário tem o controle total do ambiente espacial. Desenvolvido em Vanilla Tech 
-                    (HTML5, CSS3, JS) que une ciência e interatividade. Destaques Técnicos: Performance: Movimentos orbitais otimizados 
-                    via CSS Keyframes. Interatividade: Sistema de navegação por arraste (Drag & Pan) e interface de dados dinâmica. 
-                    UX/UI: Design imersivo com modal de instruções e suporte a atalhos de teclado (ESC). Robustez: Código preparado 
-                    para falhas de mídia (imagens ausentes não quebram o layout). Diferencial: Demonstra domínio completo da manipulação 
-                    do DOM e engenharia de software básica, sem depender de frameworks externos.</p>
+                    <p>Aplicação web interativa que simula o movimento do sistema solar. Desenvolvido em Vanilla Tech (HTML5, CSS3, JS) com movimentos orbitais otimizados via CSS Keyframes e navegação Drag & Pan.</p>
                 </div>
-        <div class="card-projeto">
-                <img src="assets/img/qrcode.jpg" alt="Gerador de Códigos">
-                <h3>Multi-Code Generator Pro (QR & Barcode)</h3>
-                <p>Uma ferramenta web poderosa e responsiva para geração instantânea de QR Codes e Códigos de Barras. Desenvolvido 
-                    com foco em utilidade e produtividade, o projeto permite criar códigos personalizados para diversas finalidades, 
-                    desde redes sociais até configurações de rede Wi-Fi.</p>
-            </div>
 
-            </div>
-    
+                <div class="card">
+                    <div class="container-imagem">
+                        <img src="assets/img/qrcode.jpg" alt="Gerador de Códigos">
+                    </div>
+                    <h3>Multi-Code Generator Pro</h3>
+                    <p>Uma ferramenta web poderosa e responsiva para geração instantânea de QR Codes e Códigos de Barras. Desenvolvido com foco em utilidade para redes sociais e configurações Wi-Fi.</p>
+                </div>
 
-            <div class="acoes-projeto" style="margin-top: 60px; display: flex; justify-content: center;">
+            </div> <div class="acoes-projeto" style="margin-top: 60px; display: flex; justify-content: center;">
                 <a href="#home" class="botao">Ver Mais Projetos</a>
             </div>
         </section>
