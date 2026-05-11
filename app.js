@@ -1,4 +1,6 @@
-/* Configuração do Particles.js */
+/* ==========================================================================
+   1. CONFIGURAÇÃO DO PARTICLES.JS (Efeito de fundo)
+   ========================================================================== */
 particlesJS("particles-js", {
   "particles": {
     "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
@@ -16,9 +18,12 @@ particlesJS("particles-js", {
   "retina_detect": true
 });
 
+/* ==========================================================================
+   2. LÓGICA DO PORTFÓLIO (Menu, Scroll e Ano)
+   ========================================================================== */
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. MENU MOBILE
+    // --- MENU MOBILE ---
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
@@ -34,23 +39,27 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 2. BOTÃO VOLTAR AO TOPO
+    // --- BOTÃO VOLTAR AO TOPO (O BOTÃO AZUL) ---
     const btn = document.getElementById("back-to-top"); 
 
-    window.onscroll = function() {
-        if (window.scrollY > 400) {
-            btn.style.display = "flex";
-        } else {
-            btn.style.display = "none";
-        }
-    };
+    if (btn) {
+        // Faz o botão aparecer/desaparecer ao rolar a página
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 400) {
+                btn.style.display = "flex"; // Mostra o botão
+            } else {
+                btn.style.display = "none"; // Esconde o botão
+            }
+        });
 
-    btn.onclick = function(evento) {
-        evento.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+        // Faz a tela subir suavemente ao clicar
+        btn.onclick = function(evento) {
+            evento.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    }
 
-    // 3. ANO ATUAL (Sempre será 2026 conforme solicitado no footer)
+    // --- ANO ATUAL NO FOOTER ---
     const yearSpan = document.getElementById("year");
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
