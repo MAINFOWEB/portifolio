@@ -1,57 +1,45 @@
-// 1. Configuração do Particles.js
-try {
-    particlesJS("particles-js", {
-        "particles": {
-            "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-            "color": { "value": "#ffffff" },
-            "shape": { "type": "circle" },
-            "opacity": { "value": 0.5 },
-            "size": { "value": 3, "random": true },
-            "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
-            "move": { "enable": true, "speed": 2 }
-        },
-        "interactivity": {
-            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } }
-        },
-        "retina_detect": true
-    });
-} catch (e) {
-    console.log("Erro no Particles:", e);
-}
 
-// 2. Funções do Portfólio
+console.log("JavaScript carregado com sucesso!");
+
 document.addEventListener("DOMContentLoaded", function() {
     
-    // Ano Atual
+    // 1. ANO ATUAL
     const yearSpan = document.getElementById("year");
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    if (yearSpan) yearSpan.textContent = "2026";
 
-    // Menu Mobile
+    // 2. MENU MOBILE (Simplificado)
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (menuToggle && navLinks) {
-        menuToggle.onclick = () => navLinks.classList.toggle('active');
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.onclick = () => navLinks.classList.remove('active');
-        });
+        menuToggle.onclick = function() {
+            navLinks.classList.toggle('active');
+        };
     }
 
-    // --- CORREÇÃO DO BOTÃO VOLTAR AO TOPO (ESTILO CLASSE) ---
+    // 3. BOTÃO VOLTAR AO TOPO (A Prova de Falhas)
     const btn = document.getElementById("back-to-top");
 
     if (btn) {
-        // Usamos addEventListener para não conflitar com nada
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 400 || document.documentElement.scrollTop > 400) {
-                btn.classList.add("visible"); // Adiciona a classe para mostrar
+        window.onscroll = function() {
+            // Log para você ver no console (F12) se o scroll está funcionando
+            console.log("Posição do scroll:", window.pageYOffset);
+
+            if (window.pageYOffset > 300) {
+                btn.style.setProperty("display", "flex", "important");
+                btn.style.opacity = "1";
+                btn.style.visibility = "visible";
             } else {
-                btn.classList.remove("visible"); // Remove a classe para esconder
+                btn.style.setProperty("display", "none", "important");
+                btn.style.opacity = "0";
+                btn.style.visibility = "hidden";
             }
-        });
+        };
 
         btn.onclick = function(e) {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
+    } else {
+        console.log("Erro: Botão 'back-to-top' não foi encontrado no HTML!");
     }
 });
