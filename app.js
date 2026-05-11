@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded", function() {
             let scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
             if (scrollPos > 400) {
-                btn.style.display = "flex"; // Mostra o botão
-            } else {
-                btn.style.display = "none"; // Esconde o botão
+    btn.style.display = "block"; // mostra
+} else {
+    btn.style.display = "none";  // esconde
             }
         });
 
