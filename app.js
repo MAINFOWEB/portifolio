@@ -1,4 +1,4 @@
-// 1. Configuração do Particles.js (Protegido para não travar o resto)
+// 1. Configuração do Particles.js
 try {
     particlesJS("particles-js", {
         "particles": {
@@ -36,21 +36,19 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // --- CORREÇÃO DO BOTÃO VOLTAR AO TOPO ---
+    // --- CORREÇÃO DO BOTÃO VOLTAR AO TOPO (ESTILO CLASSE) ---
     const btn = document.getElementById("back-to-top");
 
     if (btn) {
-        // Usamos window.onscroll de forma limpa
-        window.onscroll = function() {
-            // Verifica se rolou mais de 400px
-            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
-                btn.style.display = "flex"; // Força o display flex
+        // Usamos addEventListener para não conflitar com nada
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 400 || document.documentElement.scrollTop > 400) {
+                btn.classList.add("visible"); // Adiciona a classe para mostrar
             } else {
-                btn.style.display = "none";
+                btn.classList.remove("visible"); // Remove a classe para esconder
             }
-        };
+        });
 
-        // Função de clique
         btn.onclick = function(e) {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
