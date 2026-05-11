@@ -251,7 +251,7 @@ nav ul li a:hover { color: var(--cor-destaque); }
 }
 
 .scroll-to-top-btn:hover {
-    background-color: #00d2ff;
+    background-color: var(--cor-destaque);
     transform: translateY(-5px);
 }
 
