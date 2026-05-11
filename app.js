@@ -1,4 +1,4 @@
-// 1. Inicialização do Particles.js
+// 1. Configuração das Partículas (Fundo)
 try {
     particlesJS("particles-js", {
         "particles": {
@@ -17,6 +17,7 @@ try {
     });
 } catch (e) { console.log("Erro partículas:", e); }
 
+// 2. Funções do Portfólio
 document.addEventListener("DOMContentLoaded", function() {
     
     // Ano Atual
@@ -30,23 +31,23 @@ document.addEventListener("DOMContentLoaded", function() {
         menuToggle.onclick = () => navLinks.classList.toggle('active');
     }
 
-    // BOTÃO VOLTAR AO TOPO (CORREÇÃO FINAL)
-    const btn = document.getElementById("back-to-top");
+    // LÓGICA DO BOTÃO IGUAL AO DO AMIGO (ID: scrollToTopBtn)
+    const btn = document.getElementById("scrollToTopBtn");
 
     if (btn) {
         window.addEventListener('scroll', function() {
-            // Pegamos o scroll de qualquer navegador
+            // Posição do scroll
             let scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
             if (scrollPos > 400) {
-                btn.classList.add("visible");
+                btn.style.display = "flex"; // Mostra o botão
             } else {
-                btn.classList.remove("visible");
+                btn.style.display = "none"; // Esconde o botão
             }
         });
 
-        btn.onclick = function(e) {
-            e.preventDefault();
+        // Clique para subir
+        btn.onclick = function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
     }
