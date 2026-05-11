@@ -241,7 +241,7 @@ nav ul li a:hover { color: var(--cor-destaque); }
     border: none; 
     border-radius: 50%;
     cursor: pointer; 
-    display: none; 
+    display: none !important; /* Começa escondido */
     align-items: center; 
     justify-content: center;
     z-index: 9999; 
