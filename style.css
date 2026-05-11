@@ -230,38 +230,27 @@ nav ul li a:hover { color: var(--cor-destaque); }
 }
 
 /* --- UTILITÁRIOS --- */
-#back-to-top {
-    position: fixed; 
-    bottom: 30px; 
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 30px;
     right: 30px;
-    width: 50px; 
+    width: 50px;
     height: 50px;
-    background-color: #007bff; 
-    color: #fff; 
+    background-color: #007bff;
+    color: #fff;
+    border: none;
     border-radius: 50%;
-    cursor: pointer; 
-    display: flex; /* Mantenha sempre flex */
-    align-items: center; 
+    cursor: pointer;
+    font-size: 24px;
+    display: none; /* O JS vai controlar isso */
+    align-items: center;
     justify-content: center;
-    z-index: 9999; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    text-decoration: none;
+    z-index: 9999;
     transition: all 0.3s ease;
-
-    /* ESTADO INICIAL: Escondido por opacidade */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* CLASSE QUE O JS ATIVA */
-#back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-#back-to-top:hover {
+.scroll-to-top-btn:hover {
     background-color: #00d2ff;
     transform: translateY(-5px);
 }
