@@ -36,18 +36,28 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // --- CORREÇÃO DO BOTÃO VOLTAR AO TOPO (ESTILO CLASSE) ---
+    // --- CORREÇÃO DEFINITIVA DO BOTÃO VOLTAR AO TOPO ---
     const btn = document.getElementById("back-to-top");
 
     if (btn) {
-        // Usamos addEventListener para não conflitar com nada
+        // Escutamos o evento de scroll na janela
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 400 || document.documentElement.scrollTop > 400) {
-                btn.classList.add("visible"); // Adiciona a classe para mostrar
+            // Pegamos a distância do topo de 3 formas diferentes para garantir compatibilidade
+            let top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+
+            if (top > 400) {
+                btn.classList.add("visible");
             } else {
-                btn.classList.remove("visible"); // Remove a classe para esconder
+                btn.classList.remove("visible");
             }
-        });
+        }, { passive: true }); // passive melhora a performance
+
+        btn.onclick = function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    }
+});
 
         btn.onclick = function(e) {
             e.preventDefault();
