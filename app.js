@@ -1,4 +1,4 @@
-// 1. Configuração do Particles.js
+// 1. Inicialização do Particles.js
 try {
     particlesJS("particles-js", {
         "particles": {
@@ -11,15 +11,12 @@ try {
             "move": { "enable": true, "speed": 2 }
         },
         "interactivity": {
-            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } }
+            "events": { "onhover": { "enable": true, "mode": "grab" } }
         },
         "retina_detect": true
     });
-} catch (e) {
-    console.log("Erro no Particles:", e);
-}
+} catch (e) { console.log("Erro partículas:", e); }
 
-// 2. Funções do Portfólio
 document.addEventListener("DOMContentLoaded", function() {
     
     // Ano Atual
@@ -31,33 +28,22 @@ document.addEventListener("DOMContentLoaded", function() {
     const navLinks = document.querySelector('.nav-links');
     if (menuToggle && navLinks) {
         menuToggle.onclick = () => navLinks.classList.toggle('active');
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.onclick = () => navLinks.classList.remove('active');
-        });
     }
 
-    // --- CORREÇÃO DEFINITIVA DO BOTÃO VOLTAR AO TOPO ---
+    // BOTÃO VOLTAR AO TOPO (CORREÇÃO FINAL)
     const btn = document.getElementById("back-to-top");
 
     if (btn) {
-        // Escutamos o evento de scroll na janela
         window.addEventListener('scroll', function() {
-            // Pegamos a distância do topo de 3 formas diferentes para garantir compatibilidade
-            let top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+            // Pegamos o scroll de qualquer navegador
+            let scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
-            if (top > 400) {
+            if (scrollPos > 400) {
                 btn.classList.add("visible");
             } else {
                 btn.classList.remove("visible");
             }
-        }, { passive: true }); // passive melhora a performance
-
-        btn.onclick = function(e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
-    }
-});
+        });
 
         btn.onclick = function(e) {
             e.preventDefault();
