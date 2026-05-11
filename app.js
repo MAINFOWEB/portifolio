@@ -53,6 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // 3. ANO ATUAL (Sempre será 2026 conforme solicitado no footer)
     const yearSpan = document.getElementById("year");
     if (yearSpan) {
-        yearSpan.textContent = "2026";
+        yearSpan.textContent = new Date().getFullYear();
     }
 });
