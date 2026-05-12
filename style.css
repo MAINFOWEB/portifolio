@@ -28,7 +28,7 @@ html, body {
   left: 0;
   width: 100%; 
   height: 100%;
-  z-index: -1; /* atrás do conteúdo */
+  z-index: -1; 
   pointer-events: none;
 }
 
@@ -37,7 +37,6 @@ html, body {
     z-index: 1; 
 }
 
-/* --- HEADER & NAV --- */
 header {
     display: flex; 
     justify-content: space-between; 
@@ -65,7 +64,6 @@ nav ul li a:hover { color: var(--cor-destaque); }
     cursor: pointer;
 }
 
-/* --- HERO & CURSOR ANIMATION --- */
 .hero {
     height: 80vh; 
     display: flex; 
@@ -76,16 +74,16 @@ nav ul li a:hover { color: var(--cor-destaque); }
 }
 
 .title h1 {
-    font-size: 3rem; /*Aumentar o tamanho da fonte  */
+    font-size: 3rem;
 }
 
 .title h1 span {
-    color: var(--cor-destaque);
+    color: var(--cor-texto);
     position: relative;
 }
 
-/* Efeito do Cursor Piscando */
-.title h1 span::after {
+/* Cursor Piscando */
+.cursor-animado::after {
     content: "|";
     margin-left: 5px;
     color: var(--cor-destaque);
@@ -97,214 +95,53 @@ nav ul li a:hover { color: var(--cor-destaque); }
     50% { opacity: 0; }
 }
 
-/* --- SEÇÃO SOBRE MIM (CORRIGIDA) --- */
-#sobre-mim {
-    padding: 80px 8%; 
+.nome-colorido {
+    color: var(--cor-destaque) !important;
+    font-weight: bold;
 }
 
-.container-sobre { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    gap: 30px; 
-}
-
-.perfil-wrapper {
-    display: flex;
-    flex-direction: row; 
-    align-items: center;
-    gap: 50px;
-    width: 100%;
-}
-
-.foto-sobre img { 
-    width: 300px; 
-    height: auto;
-    border-radius: 15px; 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
-    border: 2px solid var(--cor-destaque);
-}
-
-.texto-sobre {
-    flex: 1;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.acoes-sobre {
-    width: 100%;
-    display: flex;
-    justify-content: center; 
-    margin-top: 40px;
-}
+/* --- SEÇÃO SOBRE MIM --- */
+#sobre-mim { padding: 80px 8%; }
+.container-sobre { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+.perfil-wrapper { display: flex; flex-direction: row; align-items: center; gap: 50px; width: 100%; }
+.foto-sobre img { width: 300px; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); border: 2px solid var(--cor-destaque); }
+.texto-sobre { flex: 1; font-size: 1.1rem; line-height: 1.6; }
+.acoes-sobre { width: 100%; display: flex; justify-content: center; margin-top: 40px; }
 
 .botao, .btn-curriculo {
-    display: inline-block; 
-    padding: 12px 25px;
-    border: 2px solid var(--cor-destaque); 
-    color: var(--cor-destaque);
-    text-decoration: none; 
-    font-weight: bold; 
-    transition: 0.3s;
-    margin-top: 10px;
-    background: transparent;
+    display: inline-block; padding: 12px 25px; border: 2px solid var(--cor-destaque); color: var(--cor-destaque);
+    text-decoration: none; font-weight: bold; transition: 0.3s; margin-top: 10px; background: transparent;
 }
+.botao:hover, .btn-curriculo:hover { background: var(--cor-destaque); color: var(--cor-fundo); }
 
-.botao:hover, .btn-curriculo:hover { 
-    background: var(--cor-destaque); 
-    color: var(--cor-fundo); 
-}
-
-/* --- PROJETOS & CARDS --- */
+/* --- PROJETOS --- */
 #projects { padding: 80px 8%; }
-
-.container-projetos {
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 30px;
-}
-
-.card {
-    background: var(--cor-card); 
-    color: #333; 
-    padding: 20px;
-    border-radius: 15px; 
-    transition: 0.3s;
-}
-
-.container-imagem {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    height: 200px;
-}
-
-.container-imagem img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    transition: filter 0.3s ease, transform 0.3s ease; 
-    display: block;
-}
-
-.overlay-botoes {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex; justify-content: center; align-items: center;
-    opacity: 0; transition: opacity 0.3s ease;
-    gap: 40px;
-}
-
+.container-projetos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.card { background: var(--cor-card); color: #333; padding: 20px; border-radius: 15px; transition: 0.3s; }
+.container-imagem { position: relative; overflow: hidden; border-radius: 10px; margin-bottom: 20px; height: 200px; }
+.container-imagem img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; display: block; }
+.overlay-botoes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; opacity: 0; transition: 0.3s; gap: 40px; }
 .container-imagem:hover img { filter: brightness(0.3); transform: scale(1.05); }
 .container-imagem:hover .overlay-botoes { opacity: 1; }
 
-.seu-botao-3d { 
-    display: inline-flex; flex-direction: column; align-items: center; text-decoration: none;
-    position: relative; transition: transform 0.2s ease;
-}
+.seu-botao-3d { display: inline-flex; flex-direction: column; align-items: center; text-decoration: none; position: relative; transition: 0.2s; }
 .seu-botao-3d:hover { transform: scale(1.2); }
-
-.seu-botao-3d::after {
-    content: attr(data-text);
-    position: absolute; bottom: -25px;
-    background: var(--cor-destaque); color: #000;
-    padding: 3px 10px; border-radius: 4px; font-size: 12px;
-    font-weight: bold; opacity: 0; transition: all 0.3s ease;
-    white-space: nowrap; z-index: 10;
-}
-.seu-botao-3d:hover::after { opacity: 1; bottom: -20px; }
-
-/* AJUSTE PARA AS IMAGENS DOS ÍCONES  */
-.seu-botao-3d img { 
-    width: 45px !important; 
-    height: 45px !important; 
-    object-fit: contain;
-    filter: brightness(1.3) drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.6));
-    transition: 0.3s;
-}
-
-.seu-botao-3d:hover img {
-    filter: brightness(1.5) drop-shadow(0px 0px 12px var(--cor-destaque));
-}
+.seu-botao-3d img { width: 45px !important; height: 45px !important; object-fit: contain; filter: brightness(1.3); }
 
 /* --- UTILITÁRIOS --- */
 .scroll-to-top-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 24px;
-    display: none; /* O JS vai controlar isso */
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: #007bff; color: #fff;
+    border: none; border-radius: 50%; cursor: pointer; font-size: 24px; display: none; align-items: center; justify-content: center; z-index: 9999; transition: 0.3s; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
+.scroll-to-top-btn:hover { background-color: var(--cor-destaque); transform: translateY(-5px); }
 
-.scroll-to-top-btn:hover {
-    background-color: var(--cor-destaque);
-    transform: translateY(-5px);
-}
+footer { padding: 30px 8%; background: var(--cor-fundo-transparente); text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+footer p { color: var(--cor-texto); font-size: 14px; }
 
-.acoes-projeto {
-    margin-top: 60px !important; 
-    width: 100%;
-}
-
-.container-sobre {
-    gap: 40px;
-}
-
-/* --- MEDIA QUERIES (MOBILE) --- */
 @media (max-width: 768px) {
-    header { padding: 15px 5%; }
     .title h1 { font-size: 2rem; }
     .menu-mobile { display: block; }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%; left: 0; width: 100%;
-        background: var(--cor-fundo);
-        padding: 20px; text-align: center;
-        border-bottom: 2px solid var(--cor-destaque);
-    }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--cor-fundo); padding: 20px; }
     .nav-links.active { display: flex; }
-    nav ul li { margin: 15px 0; margin-left: 0; }
-
-    .perfil-wrapper { 
-        flex-direction: column; 
-        text-align: center; 
-        gap: 20px;
-    }
-    .foto-sobre img { width: 100%; max-width: 250px; }
-    
-    #sobre-mim, #projects { padding: 50px 5%; }
-}
-
-img { max-width: 100%; height: auto; }
-
-footer {
-    padding: 30px 8%;
-    background: var(--cor-fundo-transparente);
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-footer p { color: var(--cor-texto); font-size: 14px; letter-spacing: 1px; }
-
-/* ADIÇÃO PARA O EFEITO DE DIGITAÇÃO */
-.nome-colorido {
-    color: var(--cor-destaque);
-    font-weight: bold;
+    .perfil-wrapper { flex-direction: column; text-align: center; }
 }
