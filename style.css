@@ -5,7 +5,8 @@
     --cor-destaque: #00d2ff;
     --cor-texto: #ffffff;
     --cor-card: #ffffff;
-    --cor-fundo-transparente: rgba(13, 17, 23, 0%);
+    /* Ajustei para 0.8 para dar um efeito de vidro (glassmorphism) */
+    --cor-fundo-transparente: rgba(13, 17, 23, 0.8); 
 }
 
 * { 
@@ -17,7 +18,7 @@
 html, body {
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
-    background-color: var(--cor-fundo);
+    background-color: var(--cor-fundo); /* Fundo padrão caso a lib falhe */
     color: var(--cor-texto);
     scroll-behavior: smooth;
 }
@@ -28,13 +29,14 @@ html, body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1; 
-    background-color: transparent; /* Permite ver o fundo do body */
+    z-index: 0; /* Mudei para 0 para ficar logo atrás do conteúdo principal */
+    background: transparent;
 }
 
 .conteudo-principal { 
     position: relative; 
-    z-index: 1; 
+    z-index: 1; /* O conteúdo fica acima das partículas */
+    background: transparent; /* Garante que o container não tenha cor sólida */
 }
 
 header {
@@ -42,13 +44,14 @@ header {
     justify-content: space-between; 
     align-items: center;
     padding: 20px 8%; 
-    background: var(--cor-fundo-transparente);
-    backdrop-filter: blur(5px); 
+    background: rgba(13, 17, 23, 0.5); /* Fundo semi-transparente */
+    backdrop-filter: blur(10px); /* Efeito de desfoque moderno */
     position: sticky; 
     top: 0; 
     z-index: 100;
 }
 
+/* Restante do seu código permanece igual... */
 .logo { font-size: 26px; font-weight: bold; }
 .logo span { color: var(--cor-destaque); }
 
