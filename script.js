@@ -1,85 +1,71 @@
-// Tudo dentro do DOMContentLoaded para garantir que o HTML já existe
+// 1. Função das Partículas (Isolada para não travar o resto)
+function carregarParticulas() {
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5 },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 2 }
+            },
+            "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } },
+            "retina_detect": true
+        });
+    }
+}
+
+// 2. Lógica Principal (Digitação, Botão e Menu)
 document.addEventListener("DOMContentLoaded", function() {
     
-    // --- 1. Inicialização das Partículas ---
-    function iniciarParticulas() {
-        if (typeof particlesJS !== 'undefined') {
-            particlesJS("particles-js", {
-                "particles": {
-                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                    "color": { "value": "#ffffff" },
-                    "shape": { "type": "circle" },
-                    "opacity": { "value": 0.5 },
-                    "size": { "value": 3, "random": true },
-                    "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
-                    "move": { "enable": true, "speed": 2 }
-                },
-                "interactivity": {
-                    "events": { "onhover": { "enable": true, "mode": "grab" } }
-                },
-                "retina_detect": true
-            });
-            console.log("Partículas iniciadas com sucesso!");
-        } else {
-            console.warn("Aguardando biblioteca particles.js...");
-            setTimeout(iniciarParticulas, 500); 
-        }
-    }
-    iniciarParticulas();
+    // --- Tenta carregar as partículas ---
+    carregarParticulas();
 
-    // --- 2. Efeito de Digitação ---
+    // --- Efeito de Digitação ---
     const elemento = document.getElementById("digitando");
-    const parteBranca = "eu sou ";
-    const parteAzul = "Márcio Alexandre.";
-    let i = 0;
-    let j = 0;
-    const velocidade = 100;
+    if (elemento) {
+        const textoTotal = "eu sou Márcio Alexandre.";
+        let index = 0;
 
-    function digitar() {
-        if (!elemento) return;
-        if (i < parteBranca.length) {
-            elemento.innerHTML += parteBranca.charAt(i);
-            i++;
-            setTimeout(digitar, velocidade);
-        } else if (j < parteAzul.length) {
-            if (j === 0) {
-                elemento.innerHTML += '<span class="nome-colorido"></span>';
-            }
-            const spanNome = elemento.querySelector(".nome-colorido");
-            if (spanNome) {
-                spanNome.innerHTML += parteAzul.charAt(j);
-                j++;
-                setTimeout(digitar, velocidade);
+        function digitar() {
+            if (index < textoTotal.length) {
+                // Se chegar no nome "Márcio", começa a escrever dentro de um span azul
+                if (textoTotal.substring(index).startsWith("Márcio Alexandre")) {
+                    elemento.innerHTML += `<span class="nome-colorido">Márcio Alexandre.</span>`;
+                    return; // Finaliza aqui pois o nome é o final
+                }
+                
+                elemento.innerHTML += textoTotal.charAt(index);
+                index++;
+                setTimeout(digitar, 100);
             }
         }
+        digitar();
     }
-    digitar();
 
-    // --- 3. Botão Voltar ao Topo ---
+    // --- Botão Voltar ao Topo ---
     const btnScroll = document.getElementById("scrollToTopBtn");
     if (btnScroll) {
-        window.onscroll = function() {
-            if (window.scrollY > 400 || document.documentElement.scrollTop > 400) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 400) {
                 btnScroll.style.display = "flex";
             } else {
                 btnScroll.style.display = "none";
             }
-        };
-        btnScroll.onclick = function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
+        });
+        btnScroll.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // --- 4. Menu Mobile ---
+    // --- Menu Mobile ---
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (menuToggle && navLinks) {
-        menuToggle.onclick = () => {
-            navLinks.classList.toggle('active');
-        };
+        menuToggle.onclick = () => navLinks.classList.toggle('active');
     }
 
-    // --- 5. Ano Atual no Footer ---
+    // --- Ano Atual ---
     const yearSpan = document.getElementById("year");
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 });
