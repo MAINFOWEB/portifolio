@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
         menuToggle.onclick = () => navLinks.classList.toggle('active');
     }
 
-    // LÓGICA DO BOTÃO IGUAL AO DO AMIGO (ID: scrollToTopBtn)
+    // LÓGICA DO BOTÃO (ID: scrollToTopBtn)
     const btn = document.getElementById("scrollToTopBtn");
 
     if (btn) {
@@ -51,4 +51,37 @@ document.addEventListener("DOMContentLoaded", function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
     }
+});
+document.addEventListener("DOMContentLoaded", function() {
+    const elemento = document.getElementById("digitando");
+    const parteBranca = "lá, eu sou ";
+    const parteAzul = "Márcio Alexandre";
+    
+    let i = 0;
+    let j = 0;
+    const velocidade = 100;
+
+    function digitar() {
+        // 1. Digita "eu sou " (vai herdar a cor branca do h1)
+        if (i < parteBranca.length) {
+            elemento.innerHTML += parteBranca.charAt(i);
+            i++;
+            setTimeout(digitar, velocidade);
+        } 
+        // 2. Digita o nome (que o seu CSS já deixa azul automaticamente)
+        else if (j < parteAzul.length) {
+            // Se for a primeira letra do nome, cria um span interno
+            // Isso garante que apenas o nome fique azul conforme o seu CSS
+            if (j === 0) {
+                elemento.innerHTML += '<span class="nome-colorido"></span>';
+            }
+            
+            const spanNome = elemento.querySelector(".nome-colorido");
+            spanNome.innerHTML += parteAzul.charAt(j);
+            j++;
+            setTimeout(digitar, velocidade);
+        }
+    }
+
+    digitar();
 });
