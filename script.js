@@ -1,4 +1,4 @@
-// 1. Função das Partículas (Isolada para não travar o resto)
+// 1. Função das Partículas
 function carregarParticulas() {
     if (typeof particlesJS !== 'undefined') {
         particlesJS("particles-js", {
@@ -14,32 +14,40 @@ function carregarParticulas() {
             "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } },
             "retina_detect": true
         });
+        console.log("Partículas carregadas com sucesso!");
     }
 }
 
-// 2. Lógica Principal (Digitação, Botão e Menu)
+// 2. Lógica de Interface (Digitação, Botão e Menu)
 document.addEventListener("DOMContentLoaded", function() {
     
-    // --- Tenta carregar as partículas ---
+    // Inicia Partículas
     carregarParticulas();
 
     // --- Efeito de Digitação ---
     const elemento = document.getElementById("digitando");
     if (elemento) {
-        const textoTotal = "eu sou Márcio Alexandre.";
-        let index = 0;
+        const parteBranca = "eu sou ";
+        const parteAzul = "Márcio Alexandre.";
+        let i = 0;
+        let j = 0;
+        const velocidade = 100;
 
         function digitar() {
-            if (index < textoTotal.length) {
-                // Se chegar no nome "Márcio", começa a escrever dentro de um span azul
-                if (textoTotal.substring(index).startsWith("Márcio Alexandre")) {
-                    elemento.innerHTML += `<span class="nome-colorido">Márcio Alexandre.</span>`;
-                    return; // Finaliza aqui pois o nome é o final
+            if (i < parteBranca.length) {
+                elemento.innerHTML += parteBranca.charAt(i);
+                i++;
+                setTimeout(digitar, velocidade);
+            } else if (j < parteAzul.length) {
+                if (j === 0) {
+                    elemento.innerHTML += '<span class="nome-colorido"></span>';
                 }
-                
-                elemento.innerHTML += textoTotal.charAt(index);
-                index++;
-                setTimeout(digitar, 100);
+                const spanNome = elemento.querySelector(".nome-colorido");
+                if (spanNome) {
+                    spanNome.innerHTML += parteAzul.charAt(j);
+                    j++;
+                    setTimeout(digitar, velocidade);
+                }
             }
         }
         digitar();
@@ -62,7 +70,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (menuToggle && navLinks) {
-        menuToggle.onclick = () => navLinks.classList.toggle('active');
+        menuToggle.onclick = () => {
+            navLinks.classList.toggle('active');
+        };
     }
 
     // --- Ano Atual ---
