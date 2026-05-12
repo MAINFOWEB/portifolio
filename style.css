@@ -110,7 +110,7 @@ nav ul li a:hover { color: var(--cor-destaque); }
 
 .botao, .btn-curriculo {
     display: inline-block; padding: 12px 25px; border: 2px solid var(--cor-destaque); color: var(--cor-destaque);
-    text-decoration: none; font-weight: bold; transition: 0.3s; margin-top: 10px; background: transparent;
+    text-decoration: none; font-weight: bold; transition: 0.3s; margin-top: 10px; background: rgba(13, 17, 23, 0.8);
 }
 .botao:hover, .btn-curriculo:hover { background: var(--cor-destaque); color: var(--cor-fundo); }
 
