@@ -5,7 +5,7 @@
     --cor-destaque: #00d2ff;
     --cor-texto: #ffffff;
     --cor-card: #ffffff;
-    --cor-fundo-transparente: rgba(13, 17, 23, 0.8);
+    --cor-fundo-transparente: rgba(13, 17, 23, 0);
 }
 
 * { 
