@@ -148,7 +148,7 @@ nav ul li a:hover { color: var(--cor-destaque); }
     width: 45px !important; 
     height: 45px !important; 
     object-fit: contain; 
-    filter: brightness(1.3) drop-shadow(0 0 8px var(--cor-destaque)); 
+    filter: brightness(1.6) drop-shadow(0 0 15px var(--cor-destaque)); 
 }
 
 /* NOVO: Isso aqui cria a etiqueta azul com o nome (GitHub/Demo) */
