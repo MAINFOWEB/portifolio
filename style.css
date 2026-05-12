@@ -137,21 +137,31 @@ nav ul li a:hover { color: var(--cor-destaque); }
     align-items: center; 
     text-decoration: none; 
     position: relative; 
-    transition: 0.2s; 
-    gap: 8px; /* Cria o espaço para o texto não encavalar */
+    transition: 0.3s ease; /* Transição mais suave */
+    gap: 8px; 
 }
 
-.seu-botao-3d:hover { transform: scale(1.2); }
-
-/* AJUSTADO: Adicionado o brilho neon (drop-shadow) */
+/* Estado normal da imagem (com brilho forte) */
 .seu-botao-3d img { 
     width: 45px !important; 
     height: 45px !important; 
     object-fit: contain; 
+    /* Brilho fixo que carrega com a página */
     filter: brightness(1.6) drop-shadow(0 0 15px var(--cor-destaque)); 
+    transition: 0.3s ease;
 }
 
-/* NOVO: Isso aqui cria a etiqueta azul com o nome (GitHub/Demo) */
+/* Estado quando passa o mouse: Mantém e reforça o brilho */
+.seu-botao-3d:hover { 
+    transform: scale(1.1); 
+}
+
+.seu-botao-3d:hover img {
+    /* Garante que o brilho se mantenha ativo e não suma no mouse */
+    filter: brightness(1.8) drop-shadow(0 0 20px var(--cor-destaque));
+}
+
+/* Etiqueta azul (GitHub/Demo) */
 .seu-botao-3d::after {
     content: attr(data-text);
     background-color: var(--cor-destaque);
@@ -161,6 +171,7 @@ nav ul li a:hover { color: var(--cor-destaque); }
     padding: 2px 8px;
     border-radius: 3px;
     text-transform: uppercase;
+    transition: 0.3s ease;
 }
 /* --- UTILITÁRIOS --- */
 .scroll-to-top-btn {
