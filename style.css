@@ -29,7 +29,7 @@ html, body {
     width: 100vw;
     height: 100vh;
     z-index: -1; 
-    background-color: #0d1117; /* Garante que o fundo escuro esteja nela */
+    background-color: transparent; /* Permite ver o fundo do body */
 }
 
 .conteudo-principal { 
@@ -75,11 +75,6 @@ nav ul li a:hover { color: var(--cor-destaque); }
 
 .title h1 {
     font-size: 3rem;
-}
-
-.title h1 span {
-    color: var(--cor-texto);
-    position: relative;
 }
 
 /* Cursor Piscando */
