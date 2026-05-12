@@ -76,7 +76,7 @@ nav ul li a:hover { color: var(--cor-destaque); }
 }
 
 .title h1 {
-    font-size: 3rem; /*Almentar o tamanho da fonte  */
+    font-size: 3rem; /*Aumentar o tamanho da fonte  */
 }
 
 .title h1 span {
@@ -302,3 +302,9 @@ footer {
 }
 
 footer p { color: var(--cor-texto); font-size: 14px; letter-spacing: 1px; }
+
+/* ADIÇÃO PARA O EFEITO DE DIGITAÇÃO */
+.nome-colorido {
+    color: var(--cor-destaque);
+    font-weight: bold;
+}
