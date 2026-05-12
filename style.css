@@ -113,19 +113,46 @@ nav ul li a:hover { color: var(--cor-destaque); }
 .botao:hover, .btn-curriculo:hover { background: var(--cor-destaque); color: var(--cor-fundo); }
 
 /* --- PROJETOS --- */
-#projects { padding: 80px 8%; }
-.container-projetos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.card { background: var(--cor-card); color: #333; padding: 20px; border-radius: 15px; transition: 0.3s; }
-.container-imagem { position: relative; overflow: hidden; border-radius: 10px; margin-bottom: 20px; height: 200px; }
-.container-imagem img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; display: block; }
-.overlay-botoes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; opacity: 0; transition: 0.3s; gap: 40px; }
-.container-imagem:hover img { filter: brightness(0.3); transform: scale(1.05); }
-.container-imagem:hover .overlay-botoes { opacity: 1; }
 
-.seu-botao-3d { display: inline-flex; flex-direction: column; align-items: center; text-decoration: none; position: relative; transition: 0.2s; }
-.seu-botao-3d:hover { transform: scale(1.2); }
-.seu-botao-3d img { width: 45px !important; height: 45px !important; object-fit: contain; filter: brightness(1.3); }
+.seu-botao-3d { 
+    display: inline-flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-decoration: none; 
+    position: relative; 
+    transition: 0.3s; 
+    gap: 8px; /* Espaço entre o ícone e o texto */
+}
 
+/* Efeito de Brilho apenas no Ícone */
+.seu-botao-3d img { 
+    width: 45px !important; 
+    height: 45px !important; 
+    object-fit: contain; 
+    filter: drop-shadow(0 0 8px var(--cor-destaque)); /* Brilho neon em volta do ícone */
+    transition: 0.3s;
+}
+
+/* Criar o texto (GitHub/Demo) usando o data-text do HTML */
+.seu-botao-3d::after {
+    content: attr(data-text); /* Pega o texto do atributo data-text */
+    color: var(--cor-destaque);
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 1; /* Deixa o texto visível */
+    text-shadow: 0 0 5px rgba(0, 210, 255, 0.5); /* Leve brilho no texto */
+}
+
+/* Efeito ao passar o mouse */
+.seu-botao-3d:hover { 
+    transform: scale(1.1); 
+}
+
+.seu-botao-3d:hover img {
+    filter: drop-shadow(0 0 15px var(--cor-destaque)) brightness(1.2); /* Aumenta o brilho no hover */
+}
 /* --- UTILITÁRIOS --- */
 .scroll-to-top-btn {
     position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: #007bff; color: #fff;
