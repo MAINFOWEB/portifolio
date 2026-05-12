@@ -130,13 +130,38 @@ nav ul li a:hover { color: var(--cor-destaque); }
 
 .container-imagem:hover .overlay-botoes { opacity: 1; }
 
-
-
-.seu-botao-3d { display: inline-flex; flex-direction: column; align-items: center; text-decoration: none; position: relative; transition: 0.2s; }
+/* AJUSTADO AQUI PARA MANTER TUDO ARRUMADO */
+.seu-botao-3d { 
+    display: inline-flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-decoration: none; 
+    position: relative; 
+    transition: 0.2s; 
+    gap: 8px; /* Cria o espaço para o texto não encavalar */
+}
 
 .seu-botao-3d:hover { transform: scale(1.2); }
 
-.seu-botao-3d img { width: 45px !important; height: 45px !important; object-fit: contain; filter: brightness(1.3); }
+/* AJUSTADO: Adicionado o brilho neon (drop-shadow) */
+.seu-botao-3d img { 
+    width: 45px !important; 
+    height: 45px !important; 
+    object-fit: contain; 
+    filter: brightness(1.3) drop-shadow(0 0 8px var(--cor-destaque)); 
+}
+
+/* NOVO: Isso aqui cria a etiqueta azul com o nome (GitHub/Demo) */
+.seu-botao-3d::after {
+    content: attr(data-text);
+    background-color: var(--cor-destaque);
+    color: #000;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
 /* --- UTILITÁRIOS --- */
 .scroll-to-top-btn {
     position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: #007bff; color: #fff;
