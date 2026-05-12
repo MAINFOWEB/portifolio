@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // 2. Efeito de Digitação (Olá, eu sou Márcio Alexandre)
     const elemento = document.getElementById("digitando");
     const parteBranca = "eu sou ";
-    const parteAzul = "Márcio Alexandre";
+    const parteAzul = "Márcio Alexandre.";
     let i = 0;
     let j = 0;
     const velocidade = 100;
