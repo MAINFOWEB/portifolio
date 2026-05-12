@@ -29,7 +29,7 @@ html, body {
   width: 100%;
   height: 100%;
   z-index: -1; /* Garante que fique atrás de tudo */
-  background-color: #0d1117; /* A cor do fundo */
+  background-color: transparent; /* A cor do fundo */
 }
 
 .conteudo-principal { 
