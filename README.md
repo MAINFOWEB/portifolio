@@ -51,7 +51,7 @@ Aplicação interativa para desenho de plantas baixas com cálculos automáticos
 
 * **GitHub:** [MAINFOWEB](https://github.com/MAINFOWEB)
 * **LinkedIn:** [Marcio Alexandre Oliveira Ferreira](https://www.linkedin.com/in/marcio-alexandre-oliveira-ferreira-bb34a838a/)
-* **Email:** [mailto:maverycky123_sp@outlook.com](mailto:maverycky123_sp@outlook.com)
+* **Email:** [maverycky123_sp@outlook.com](mailto:maverycky123_sp@outlook.com)
 
 ---
 *Desenvolvido por Márcio - 2026*
