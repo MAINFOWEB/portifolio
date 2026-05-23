@@ -53,5 +53,8 @@ Aplicação interativa para desenho de plantas baixas com cálculos automáticos
 * **LinkedIn:** [Marcio Alexandre Oliveira Ferreira](https://www.linkedin.com/in/marcio-alexandre-oliveira-ferreira-bb34a838a/)
 * **Email:** [maverycky123_sp@outlook.com](mailto:maverycky123_sp@outlook.com)
 
+## 📝 Licença
+Este projeto está sob a licença GPL 3.0.
+
 ---
 *Desenvolvido por Márcio - 2026*
