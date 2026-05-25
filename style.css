@@ -51,7 +51,6 @@ header {
     z-index: 100;
 }
 
-/* Restante do seu código permanece igual... */
 .logo { font-size: 26px; font-weight: bold; }
 .logo span { color: var(--cor-destaque); }
 
@@ -106,62 +105,34 @@ nav ul li a:hover { color: var(--cor-destaque); }
 .texto-sobre { flex: 1; font-size: 1.1rem; line-height: 1.6; }
 .acoes-sobre { width: 100%; display: flex; justify-content: center; margin-top: 40px; }
 
-.botao, .btn-curriculo {
-    display: inline-block; padding: 12px 25px; border: 2px solid var(--cor-destaque); color: var(--cor-destaque);
-    text-decoration: none; font-weight: bold; transition: 0.3s; margin-top: 10px; background: rgba(13, 17, 23, 0.8);
-}
-.botao:hover, .btn-curriculo:hover { background: var(--cor-destaque); color: var(--cor-fundo); }
-
 /* --- PROJETOS --- */
-
 #projects { padding: 80px 8%; }
-
 .container-projetos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-
 .card { background: var(--cor-card); color: #333; padding: 20px; border-radius: 15px; transition: 0.3s; }
-
 .container-imagem { position: relative; overflow: hidden; border-radius: 10px; margin-bottom: 20px; height: 200px; }
-
 .container-imagem img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; display: block; }
-
 .overlay-botoes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; opacity: 0; transition: 0.3s; gap: 40px; }
-
 .container-imagem:hover img { filter: brightness(0.3); transform: scale(1.05); }
-
 .container-imagem:hover .overlay-botoes { opacity: 1; }
 
-/* AJUSTADO AQUI PARA MANTER TUDO ARRUMADO */
 .seu-botao-3d { 
     display: inline-flex; 
     flex-direction: column; 
     align-items: center; 
     text-decoration: none; 
     position: relative; 
-    transition: 0.3s ease; /* Transição mais suave */
+    transition: 0.3s ease;
     gap: 8px; 
 }
-
-/* Estado normal da imagem (com brilho forte) */
 .seu-botao-3d img { 
     width: 45px !important; 
     height: 45px !important; 
     object-fit: contain; 
-    /* Brilho fixo que carrega com a página */
     filter: brightness(1.6) drop-shadow(0 0 15px var(--cor-destaque)); 
     transition: 0.3s ease;
 }
-
-/* Estado quando passa o mouse: Mantém e reforça o brilho */
-.seu-botao-3d:hover { 
-    transform: scale(1.1); 
-}
-
-.seu-botao-3d:hover img {
-    /* Garante que o brilho se mantenha ativo e não sumo no mouse */
-    filter: brightness(1.8) drop-shadow(0 0 20px var(--cor-destaque));
-}
-
-/* Etiqueta azul (GitHub/Demo) */
+.seu-botao-3d:hover { transform: scale(1.1); }
+.seu-botao-3d:hover img { filter: brightness(1.8) drop-shadow(0 0 20px var(--cor-destaque)); }
 .seu-botao-3d::after {
     content: attr(data-text);
     background-color: var(--cor-destaque);
@@ -173,6 +144,7 @@ nav ul li a:hover { color: var(--cor-destaque); }
     text-transform: uppercase;
     transition: 0.3s ease;
 }
+
 /* --- UTILITÁRIOS --- */
 .scroll-to-top-btn {
     position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: #007bff; color: #fff;
@@ -192,7 +164,103 @@ footer p { color: var(--cor-texto); font-size: 14px; }
 }
 
 /* ==========================================================================
-   CARROSSEL INFINITO DE CONHECIMENTOS (CLASSES PERSONALIZADAS & MAIOR)
+   NOVO: EFEITO DE LUZ NEON CORRENDO NOS BOTOES (BAIXAR CV / VER PROJETOS)
+   ========================================================================== */
+
+.botao, .btn-curriculo {
+    position: relative;
+    display: inline-block;
+    padding: 12px 30px;
+    color: var(--cor-destaque);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+    overflow: hidden;
+    transition: 0.5s;
+    background: rgba(13, 17, 23, 0.9);
+    border: none; /* Remove a borda antiga para dar lugar às linhas animadas */
+    cursor: pointer;
+}
+
+/* Efeito ao passar o mouse: Preenchimento e Brilho Neon Extremo */
+.efeito-luz:hover {
+    background: var(--cor-destaque);
+    color: #0d1117 !important;
+    box-shadow: 0 0 10px var(--cor-destaque),
+                0 0 40px var(--cor-destaque),
+                0 0 80px var(--cor-destaque);
+    transition-delay: 0.1s;
+}
+
+/* Configuração Geral das Linhas do Botão */
+.efeito-luz span {
+    position: absolute;
+    display: block;
+}
+
+/* Linha 1: Superior (Corre da esquerda para a direita) */
+.efeito-luz span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cor-destaque));
+    animation: linha-topo 1s linear infinite;
+}
+@keyframes linha-topo {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+
+/* Linha 2: Direita (Corre de cima para baixo) */
+.efeito-luz span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, var(--cor-destaque));
+    animation: linha-direita 1s linear infinite;
+    animation-delay: 0.25s;
+}
+@keyframes linha-direita {
+    0% { top: -100%; }
+    50%, 100% { top: 100%; }
+}
+
+/* Linha 3: Inferior (Corre da direita para a esquerda) */
+.efeito-luz span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, var(--cor-destaque));
+    animation: linha-baixo 1s linear infinite;
+    animation-delay: 0.5s;
+}
+@keyframes linha-baixo {
+    0% { right: -100%; }
+    50%, 100% { right: 100%; }
+}
+
+/* Linha 4: Esquerda (Corre de baixo para cima) */
+.efeito-luz span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, var(--cor-destaque));
+    animation: linha-esquerda 1s linear infinite;
+    animation-delay: 0.75s;
+}
+@keyframes linha-esquerda {
+    0% { bottom: -100%; }
+    50%, 100% { bottom: 100%; }
+}
+
+/* ==========================================================================
+   CARROSSEL INFINITO DE CONHECIMENTOS (C MINÚSCULO CORRIGIDO)
    ========================================================================== */
 
 #conhecimentos {
@@ -200,54 +268,47 @@ footer p { color: var(--cor-texto); font-size: 14px; }
   padding: 40px 0;
 }
 
-/* O seu container do carrossel */
 .carrossel-container {
-  overflow: hidden; /* Oculta os ícones que passam do limite da tela */
+  overflow: hidden;
   width: 100%;
   background: transparent; 
   padding: 25px 0;
   display: flex;
 }
 
-/* A área interna que desliza */
 .carrossel-skils {
   display: flex;
   width: max-content;
-  animation: letreiro-infinito 35s linear infinite; /* 35s garante uma velocidade confortável para o tamanho maior */
+  animation: letreiro-infinito 35s linear infinite;
 }
 
-/* Pausa o movimento ao passar o mouse por cima do carrossel */
 .carrossel-container:hover .carrossel-skils {
   animation-play-state: paused;
 }
 
-/* Os blocos internos de grupos */
 .marquee-group {
   display: flex;
-  gap: 100px; /* Distância horizontal ampliada (era 80px) */
+  gap: 100px; 
   padding: 0 50px;
 }
 
-/* Estrutura de cada card de tecnologia (Ícone + Texto) */
 .card-tech {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 14px;
-  min-width: 110px; /* Largura ampliada para comportar os textos sem quebras (era 90px) */
+  min-width: 110px;
 }
 
-/* Tamanho dos ícones aumentado */
 .card-tech img {
-  height: 65px; /* Altura aumentada (era 50px) */
+  height: 65px; 
   width: auto;
-  max-width: 80px; /* Largura máxima proporcionalizada (era 60px) */
+  max-width: 80px; 
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
-/* Estilização do texto abaixo do ícone */
 .card-tech span {
   color: #ffffff;
   font-size: 16px;
@@ -256,17 +317,11 @@ footer p { color: var(--cor-texto); font-size: 14px; }
   white-space: nowrap;
 }
 
-/* Efeito suave de zoom ao passar o mouse diretamente no ícone */
 .card-tech:hover img {
   transform: scale(1.15);
 }
 
-/* Animação CSS que cria o efeito de loop contínuo da direita para a esquerda */
 @keyframes letreiro-infinito {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
