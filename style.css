@@ -5,7 +5,7 @@
     --cor-destaque: #00d2ff;
     --cor-texto: #ffffff;
     --cor-card: #ffffff;
-    /* Ajustei para 0.8 para dar um efeito de vidro (glassmorphism) */
+    /* Ajustado para 0.8 para dar um efeito de vidro (glassmorphism) */
     --cor-fundo-transparente: rgba(13, 17, 23, 0.8); 
 }
 
@@ -192,7 +192,7 @@ footer p { color: var(--cor-texto); font-size: 14px; }
 }
 
 /* ==========================================================================
-   ADICIONADO: SEÇÃO DE CONHECIMENTOS (LETREIRO INFINITO)
+   CARROSSEL INFINITO DE CONHECIMENTOS (CLASSES PERSONALIZADAS & MAIOR)
    ========================================================================== */
 
 #Conhecimentos {
@@ -200,47 +200,54 @@ footer p { color: var(--cor-texto); font-size: 14px; }
   padding: 40px 0;
 }
 
-.knowledge-marquee {
-  overflow: hidden;
+/* O seu container do carrossel */
+.carrossel-container {
+  overflow: hidden; /* Oculta os ícones que passam do limite da tela */
   width: 100%;
   background: transparent; 
-  padding: 20px 0;
+  padding: 25px 0;
   display: flex;
 }
 
-.marquee-content {
+/* A área interna que desliza */
+.carrossel-skils {
   display: flex;
   width: max-content;
-  animation: letreiro-infinito 25s linear infinite;
+  animation: letreiro-infinito 35s linear infinite; /* 35s garante uma velocidade confortável para o tamanho maior */
 }
 
-.knowledge-marquee:hover .marquee-content {
+/* Pausa o movimento ao passar o mouse por cima do carrossel */
+.carrossel-container:hover .carrossel-skils {
   animation-play-state: paused;
 }
 
+/* Os blocos internos de grupos */
 .marquee-group {
   display: flex;
-  gap: 80px; 
-  padding: 0 40px;
+  gap: 100px; /* Distância horizontal ampliada (era 80px) */
+  padding: 0 50px;
 }
 
+/* Estrutura de cada card de tecnologia (Ícone + Texto) */
 .card-tech {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  min-width: 90px;
+  gap: 14px;
+  min-width: 110px; /* Largura ampliada para comportar os textos sem quebras (era 90px) */
 }
 
+/* Tamanho dos ícones aumentado */
 .card-tech img {
-  height: 50px; 
+  height: 65px; /* Altura aumentada (era 50px) */
   width: auto;
-  max-width: 60px;
+  max-width: 80px; /* Largura máxima proporcionalizada (era 60px) */
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
+/* Estilização do texto abaixo do ícone */
 .card-tech span {
   color: #ffffff;
   font-size: 16px;
@@ -249,10 +256,12 @@ footer p { color: var(--cor-texto); font-size: 14px; }
   white-space: nowrap;
 }
 
+/* Efeito suave de zoom ao passar o mouse diretamente no ícone */
 .card-tech:hover img {
   transform: scale(1.15);
 }
 
+/* Animação CSS que cria o efeito de loop contínuo da direita para a esquerda */
 @keyframes letreiro-infinito {
   from {
     transform: translateX(0);
