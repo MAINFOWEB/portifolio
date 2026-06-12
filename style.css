@@ -325,3 +325,61 @@ footer p { color: var(--cor-texto); font-size: 14px; }
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+
+/* ===== CONTATO ===== */
+#contato {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contato-descricao {
+    color: #aaa;
+    font-size: 1rem;
+    margin-bottom: 40px;
+}
+
+.container-contato {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contato-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.contato-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(0, 188, 212, 0.25);
+    border-radius: 12px;
+    padding: 16px 28px;
+    width: 100%;
+    max-width: 420px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.contato-card:hover {
+    border-color: #00bcd4;
+    color: #00bcd4;
+    background: rgba(0, 188, 212, 0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 0 18px rgba(0, 188, 212, 0.2);
+}
+
+.contato-card i {
+    font-size: 1.4rem;
+    color: #00bcd4;
+    min-width: 24px;
+}
+
+.contato-card .fa-whatsapp {
+    color: #25d366;
+}
